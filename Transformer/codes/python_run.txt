@@ -1,0 +1,5 @@
+# train
+python run.py train --train-src=../source/src_train.txt --train-tgt=../source/src_test.txt --dev-src=../source/src_val.txt --dev-tgt=../source/tgt_val.txt --vocab=../source/vocab.txt --batch-size=2 
+
+# code check
+python run.py train --train-src=../source/src_train.txt --train-tgt=../source/src_test.txt --dev-src=../source/src_val.txt --dev-tgt=../source/tgt_val.txt --vocab=../source/vocab.txt --check-src=../source/code_check_src.txt --check-tgt=../source/code_check_tgt.txt --batch-size=2 --cuda 
