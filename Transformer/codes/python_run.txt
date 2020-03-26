@@ -1,5 +1,10 @@
 # train
-python run.py train --train-src=../source/src_train.txt --train-tgt=../source/src_test.txt --dev-src=../source/src_val.txt --dev-tgt=../source/tgt_val.txt --vocab=../source/vocab.txt --batch-size=2 
+python run.py train --train-src=../source/src_train.txt --train-tgt=../source/tgt_train.txt --dev-src=../source/src_val.txt --dev-tgt=../source/tgt_val.txt --vocab=../source/vocab.txt --batch-size=16  --cuda --valid-niter=500 --max-epoch=15
+
+# test
+python run.py decode --cuda ../model.bin ../source/src_test.txt ../source/tgt_test.txt ../output.txt
 
 # code check
-python run.py train --train-src=../source/src_train.txt --train-tgt=../source/src_test.txt --dev-src=../source/src_val.txt --dev-tgt=../source/tgt_val.txt --vocab=../source/vocab.txt --check-src=../source/code_check_src.txt --check-tgt=../source/code_check_tgt.txt --batch-size=2 --cuda 
+python run.py train --train-src=../source/code_check_src.txt --train-tgt=../source/code_check_tgt.txt --dev-src=../source/src_val.txt --dev-tgt=../source/tgt_val.txt --vocab=../source/vocab.txt  --batch-size=2 --cuda
+  
+python run.py decode --cuda ../model.bin ../source/src_test_check.txt ../source/tgt_test_check.txt ../output_check.txt
